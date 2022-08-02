@@ -1,5 +1,12 @@
-import {BrowserRouter, Routers, Router} from 'react-router-dom';
+//App.js
+// Main App component that handles routing
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import React from 'react';
+import Home from './components/Home';
+import About from './components/About';
+import Shop from './components/Shop';
+import Cart from './components/Cart';
 
 const App = () => {
   return (
@@ -12,6 +19,6 @@ const App = () => {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
