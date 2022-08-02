@@ -5,6 +5,7 @@ import React from 'react';
 import About from './About';
 import Shop from './Shop';
 import Cart from './Cart';
+import {Link} from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -14,11 +15,14 @@ const Home = () => {
         </header>
         <div className="NavBar">
             <ul className="NavItems">
-                <li link={Home}>HOME</li>
-                <li link={About}>ABOUT</li>
-                <li link={Shop}>SHOP</li>
-                <li link={Cart}>VIEW CART</li>
+                <Link to="/"><li>HOME</li></Link>
+                <Link to="/about"><li>ABOUT</li></Link>
+                <Link to="/shop"><li>SHOP</li></Link>
+                <Link to="/cart"><li>VIEW CART</li></Link>
             </ul>
+        </div>
+        <div className="HomeData">
+            The worlds number one supplier of nothing!
         </div>
         <footer>
             by jkenton21
