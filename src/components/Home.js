@@ -1,34 +1,21 @@
 //Home.js
-// Home screen component with basic web store info and links
+// Home component for the home web page
 
-import React from 'react';
-import About from './About';
-import Shop from './Shop';
-import Cart from './Cart';
-import {Link} from 'react-router-dom';
+import React from "react";
+import '../styles/App.css';
+import { Link } from "react-router-dom";
 
-const Home = () => {
+function Home() {
     return (
-      <div className="AppContainer">
-        <header>
-            Great Mall of Nothing!
-        </header>
-        <div className="NavBar">
-            <ul className="NavItems">
-                <Link to="/"><li>HOME</li></Link>
-                <Link to="/about"><li>ABOUT</li></Link>
-                <Link to="/shop"><li>SHOP</li></Link>
-                <Link to="/cart"><li>VIEW CART</li></Link>
-            </ul>
+        <div id="home">
+            <h1>The Great Store of Nothing! </h1>
+            <p>The number one supplier of nothing in the world!</p>
+            <p>We have you covered for all of your nothing needs.</p>
+            <Link to='/shop'>
+                <button>Start Shopping</button>
+            </Link>
         </div>
-        <div className="HomeData">
-            The worlds number one supplier of nothing!
-        </div>
-        <footer>
-            by jkenton21
-        </footer>
-      </div>
     );
-  };
+}
 
-  export default Home;
+export default Home;

@@ -1,37 +1,28 @@
 //Shop.js
 // Shop web page component with products to choose to add to the cart
 
-import React from 'react';
-import Home from './Home';
-import About from './About';
-import Cart from './Cart';
-import {Link} from 'react-router-dom';
+import React, {useEffect} from "react";
+import shoppingItems from "../images/images"
+import { Link } from "react-router-dom";
 
-const Shop = () => {
+function Shop ({ addItem }) {
+
+    useEffect(() => {  
+    },[])
+    
     return (
-      <div className="AppContainer">
-        <header>
-            Great Mall of Nothing! Shop
-        </header>
-        <div className="NavBar">
-            <ul className="NavItems">
-                <Link to="/"><li>HOME</li></Link>
-                <Link to="/about"><li>ABOUT</li></Link>
-                <Link to="/shop"><li>SHOP</li></Link>
-                <Link to="/cart"><li>VIEW CART</li></Link>
-            </ul>
+        <div id="items">
+            {shoppingItems.map((racket, index) => {
+                return (
+                    <div key={index} id='item' >
+                        <Link to={`/shop/${racket.name}`}>
+                            <img src={racket.img} alt={`${racket.name}`} data-item={racket}/>
+                        </Link>
+                        <p>price: {racket.price}</p>
+                    </div>
+                )
+            })}
         </div>
-        <div className="shopContainer">
-            <h3>Shop</h3>
-            <div className="productsContainer">
-                
-            </div>
-        </div>
-        <footer>
-            by jkenton21
-        </footer>
-      </div>
-    );
-  };
-
-  export default Shop;
+    )
+}
+export default Shop;

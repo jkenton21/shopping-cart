@@ -1,40 +1,64 @@
 //Cart.js
 // Shopping Cart web page component with shopping cart items and checkout prices
 
-import React from 'react';
-import Home from './Home';
-import About from './About';
-import Shop from './Shop';
-import {Link} from 'react-router-dom';
+import React , { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Cart = () => {
+function Cart ({shoppingCart, setShoppingCart}) {
+
+    const addAmount = (e) => {
+        const newList = shoppingCart.map(item => {
+          if (item.name === e.target.dataset.name) {
+            item.amount++
+          }
+          return item
+        })
+        setShoppingCart(newList)
+      }
+
+    const reduceAmount = (e) => {
+        const newList = shoppingCart.map(item => {
+            if (item.name === e.target.dataset.name) {
+              item.amount-- 
+            }
+            return item
+          })
+        console.log(newList)
+        const itemToEdit = shoppingCart.find(item => item.name === e.target.dataset.name)
+        if (itemToEdit.amount < 1) {
+            const allOtherItems = shoppingCart.filter(item => item.name !== e.target.dataset.name)
+            return (setShoppingCart(allOtherItems))
+          }
+        setShoppingCart(newList)
+    }
+
+    const checkout = () => {
+        const hi = prompt("This is not functional site yet")
+    }
+
     return (
-      <div className="AppContainer">
-        <header>
-            Great Mall of Nothing! Cart
-        </header>
-        <div className="NavBar">
-            <ul className="NavItems">
-                <Link to="/"><li>HOME</li></Link>
-                <Link to="/about"><li>ABOUT</li></Link>
-                <Link to="/shop"><li>SHOP</li></Link>
-                <Link to="/cart"><li>VIEW CART</li></Link>
-            </ul>
-        </div>
-        <div className="cartContainer">
-            <h3>Shopping Cart</h3>
-            <div className="cartItems">
-
+        <div>
+            <div id="cart">
+                {shoppingCart.map((racket, index) => {
+                    return (
+                        <div key={index} id='item' >
+                            <Link to={`/shop/${racket.name}`}>
+                                <img src={racket.img} alt={`${racket.name}`} data-item={racket}/>
+                            </Link>
+                            <p>price per unit: ${racket.price}</p>
+                            <p>quantity: {racket.amount}</p>
+                            <button data-name={racket.name} onClick={addAmount}>Add Another</button>
+                            <button data-name={racket.name} onClick={reduceAmount}>Reduce Quantity</button>
+                            <p>Total: ${racket.amount * racket.price}</p>
+                        </div>
+                    )
+                })}
             </div>
-            <div className="cartTotal">
-                
+            <div id="cartTotals">
+                <p>Total: ${shoppingCart.reduce(( prev, curr ) => prev + (curr.price * curr.amount), 0)}</p>
+                <button onClick={checkout}>Checkout</button>
             </div>
         </div>
-        <footer>
-            by jkenton21
-        </footer>
-      </div>
-    );
-  };
-
-  export default Cart;
+    )
+}
+export default Cart;
