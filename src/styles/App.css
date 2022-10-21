@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    font-family: "Roboto", sarif;
   }
   
   nav {
@@ -17,8 +18,9 @@
     justify-content: space-between;
     padding: 1em;
     width: 100%;
-    background-color: lightsalmon;
-    font-family: Impact;
+    background-color: rgb(43, 114, 247);
+    font-family: "Roboto", sarif;
+    color: white;
   }
   
   nav ul {
@@ -26,6 +28,11 @@
     list-style: none;
     justify-content: space-around;
     width: 35%;
+    color: white;
+  }
+
+  nav ul li {
+    color: white;
   }
 
   #home {
@@ -35,7 +42,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
   }
 
   #home p, button, h1 {
@@ -62,17 +68,20 @@
   }
 
   #footer {
-    background-color: lightsalmon;
+    background-color: rgb(43, 114, 247);
     width: 100%;
     height: 25px;
     text-align: center;
     padding: 5px;
+    color: white;
+    font-family: "Roboto", sarif;
   }
   
   #items {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 3.5vw;
+    margin: 10px;
   }
 
   #item{
@@ -83,8 +92,9 @@
     padding: 1em;
     border-style: solid;
     border-radius: 10px;
-    border-color: lightsalmon;
-    font-family: Impact;
+    border-color: white;
+    background-color: rgb(225, 235, 254);
+    font-family: "Roboto", sarif;
   }
 
   #cartTotals {
@@ -92,5 +102,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Impact;
+    font-family: "Roboto", sarif;
   }
